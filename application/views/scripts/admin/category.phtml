@@ -1,0 +1,81 @@
+
+
+<!-- Page Heading -->
+<div class="row">
+    <div class="col-lg-12">
+        <h1 class="page-header">
+            Categories Control
+        </h1>
+        <ol class="breadcrumb">
+            <li>
+                <i class="fa fa-dashboard"></i>  <a href="<?php echo $this->baseUrl() . '/admin' ?>">Dashboard</a>
+            </li>
+            <li class="active">
+                <i class="fa fa-edit"></i> Categories Control
+            </li>
+        </ol>
+    </div>
+</div>
+<!-- /.row -->
+<div class="col-lg-10">
+    <a href="<?php echo $this->baseUrl() . '/admin/addcategory' ?>" type="submit" class="btn btn-md btn-default pull-right" /><i class="fa fa-fw fa-university"></i> Add New Category</a>
+    <h2>Categories Table</h2>
+    <div class="table-responsive">
+        <table class="table table-bordered table-hover">
+            <thead>
+                <tr>
+                <th><i class="fa fa-fw fa-university"></i> Category</th>
+                <th><i class="fa fa-fw fa-image"></i> Image</th>
+                <th><i class="fa fa-fw fa-clock-o"></i> Add Time</th>
+                <th><i class="fa fa-fw fa-star-half-o"></i> Active state</th>
+                <th><i class="fa fa-fw fa-cogs"></i> Action</th>
+            </tr>
+        </thead>
+        <tbody>
+
+            <?php
+            foreach ($this->category as $cat) {
+
+              
+                ?>
+                <tr>
+                    <td><a href='<?php echo $this->baseUrl() . '/admin/categorydetails/id/' . $cat['id'] ?>'><?php echo $cat['course_name'] ?></a></td>
+                    
+                    <td><img  class="thumbnail" src='<?php echo $this->baseUrl() . '/img/courses_images_folder/' . $cat['image'] ?>' ></td>
+                    
+                    <td><?php echo $cat['created_at'] ?></td>
+                    <td><a href="<?php echo $this->baseUrl() . '/admin/deletecategory/id/'. $cat['id'] ?>"data-placement="left" title="Edit This Material" class="btn btn-md btn-danger" ><i class="fa fa-fw fa-trash"></i> Delete</a></td>
+                    <td>
+                      
+                        
+                       
+                        <!--edit action-->
+                        <a href="<?php echo $this->baseUrl() . '/admin/editcategory/id/' . $cat['id'] ?>"data-placement="left" title="Edit This Material" class="btn btn-md btn-primary" ><i class="fa fa-fw fa-pencil-square-o"></i> Edit</a>
+                        
+                    </td>
+
+                </tr>
+            <?php } ?>
+
+        </tbody>
+    </table>
+</div>
+</div>
+
+
+<script src="<?php echo $this->baseUrl() . '/../public/js/jquery-1.12.3.js' ?>"></script>
+<script>
+    $(function () {
+        console.log('js started');
+        $('.btn-group').on('click', function () {
+//            console.log($(this).children().children().val());
+            window.location.replace($(this).children().children().val());
+        });
+
+
+
+    });
+
+</script>
+
+

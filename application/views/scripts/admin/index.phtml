@@ -1,0 +1,229 @@
+
+<!-- Page Heading -->
+
+<div class="col-lg-12">
+    <h1 class="page-header">
+        Dashboard <small>Statistics Overview</small>
+    </h1>
+    <ol class="breadcrumb">
+        <li class="active">
+            <i class="fa fa-dashboard"></i> Dashboard
+        </li>
+    </ol>
+</div>
+</div>
+<!-- /.row -->
+
+
+<div class="row">
+    <div class="col-lg-2 col-md-4">
+        <div class="panel panel-primary">
+            <div class="panel-heading">
+                <div class="row">
+                    <div class="col-xs-2">
+                        <i class="fa fa-comments fa-3x"></i>
+                    </div>
+                    <div class="col-xs-10 text-right">
+                        <div class="huge"><?php echo $this->comments?></div>
+                        <div>Comments!!</div>
+                    </div>
+                </div>
+            </div>
+            <a href="<?php echo $this->baseUrl().'/admin/comments'?>">
+                <div class="panel-footer">
+                    <span class="pull-left">View Details</span>
+                    <span class="pull-right"><i class="fa fa-arrow-circle-right"></i></span>
+                    <div class="clearfix"></div>
+                </div>
+            </a>
+        </div>
+    </div>
+    <div class="col-lg-2 col-md-4">
+        <div class="panel panel-green">
+            <div class="panel-heading">
+                <div class="row">
+                    <div class="col-xs-2">
+                        <i class="fa fa-file fa-3x"></i>
+                    </div>
+                    <div class="col-xs-10 text-right">
+                        <div class="huge"><?php echo $this->materials?></div>
+                        <div>New Materials!</div>
+                    </div>
+                </div>
+            </div>
+            <a href="<?php echo $this->baseUrl().'/admin/materials'?>">
+                <div class="panel-footer">
+                    <span class="pull-left">View Details</span>
+                    <span class="pull-right"><i class="fa fa-arrow-circle-right"></i></span>
+                    <div class="clearfix"></div>
+                </div>
+            </a>
+        </div>
+    </div>
+    <div class="col-lg-2 col-md-4">
+        <div class="panel panel-yellow">
+            <div class="panel-heading">
+                <div class="row">
+                    <div class="col-xs-2">
+                        <i class="fa fa-flag-checkered fa-3x"></i>
+                    </div>
+                    <div class="col-xs-10 text-right">
+                        <div class="huge"><?php echo $this->requests?></div>
+                        <div>New Requests!</div>
+                    </div>
+                </div>
+            </div>
+             <a href="<?php echo $this->baseUrl().'/admin/materials'?>">
+                <div class="panel-footer">
+                    <span class="pull-left">View Details</span>
+                    <span class="pull-right"><i class="fa fa-arrow-circle-right"></i></span>
+                    <div class="clearfix"></div>
+                </div>
+            </a>
+        </div>
+    </div>
+    <div class="col-lg-2 col-md-4">
+        <div class="panel panel-gray">
+            <div class="panel-heading">
+                <div class="row">
+                    <div class="col-xs-2">
+                        <i class="fa fa-users fa-3x"></i>
+                    </div>
+                    <div class="col-xs-10 text-right">
+                        <div class="huge"><?php echo $this->users?></div>
+                        <div>Online Users!</div>
+                    </div>
+                </div>
+            </div>
+            <a href="<?php echo $this->baseUrl().'/admin/users'?>">
+                <div class="panel-footer">
+                    <span class="pull-left">View Details</span>
+                    <span class="pull-right"><i class="fa fa-arrow-circle-right"></i></span>
+                    <div class="clearfix"></div>
+                </div>
+            </a>
+        </div>
+    </div>
+    <div class="col-lg-2 col-md-4">
+        <div class="panel panel-warning">
+            <div class="panel-heading">
+                <div class="row">
+                    <div class="col-xs-2">
+                        <i class="fa fa-download fa-3x"></i>
+                    </div>
+                    <div class="col-xs-10 text-right">
+                        <div class="huge"><?php echo $this->downloads?></div>
+                        <div>Downloads !</div>
+                    </div>
+                </div>
+            </div>
+            <a href="<?php echo $this->baseUrl().'/admin/materials'?>">
+                <div class="panel-footer">
+                    <span class="pull-left">View Details</span>
+                    <span class="pull-right"><i class="fa fa-arrow-circle-right"></i></span>
+                    <div class="clearfix"></div>
+                </div>
+            </a>
+        </div>
+    </div>
+<!--    <div class="col-lg-2 col-md-4">
+        <div class="panel panel-success">
+            <div class="panel-heading">
+                <div class="row">
+                    <div class="col-xs-2">
+                        <i class="fa fa-fire fa-3x"></i>
+                    </div>
+                    <div class="col-xs-10 text-right">
+                        <div class="huge">8<?php // echo $this->events?></div>
+                        <div>New Events!</div>
+                    </div>
+                </div>
+            </div>
+            <a href="<?php echo $this->baseUrl().'/admin/events'?>">
+                <div class="panel-footer">
+                    <span class="pull-left">View Details</span>
+                    <span class="pull-right"><i class="fa fa-arrow-circle-right"></i></span>
+                    <div class="clearfix"></div>
+                </div>
+            </a>
+        </div>
+    </div>-->
+</div>
+<!-- /.row -->
+
+<!--<div class="row">
+    <div class="col-lg-12">
+        <div class="panel panel-default">
+            <div class="panel-heading">
+                <h3 class="panel-title"><i class="fa fa-bar-chart-o fa-fw"></i> Area Chart</h3>
+            </div>
+            <div class="panel-body">
+                <div id="morris-area-chart"></div>
+            </div>
+        </div>
+    </div>
+</div>-->
+<!-- /.row -->
+
+<div class="row">
+<!--    <div class="col-lg-6">
+        <div class="panel panel-default">
+            <div class="panel-heading">
+                <h3 class="panel-title"><i class="fa fa-long-arrow-right fa-fw"></i> Donut Chart</h3>
+            </div>
+            <div class="panel-body">
+                <div id="morris-donut-chart"></div>
+                <div class="text-right">
+                    <a href="#">View Details <i class="fa fa-arrow-circle-right"></i></a>
+                </div>
+            </div>
+        </div>
+    </div>-->
+    <div class="col-lg-12">
+        <div class="panel panel-default">
+            <div class="panel-heading">
+                <h3 class="panel-title"><i class="fa fa-clock-o fa-fw"></i> Tasks Panel</h3>
+            </div>
+            <div class="panel-body">
+                <div class="list-group">
+                    <a href="#" class="list-group-item">
+                        <span class="badge">just now</span>
+                        <i class="fa fa-fw fa-calendar"></i> Calendar updated
+                    </a>
+                    <a href="#" class="list-group-item">
+                        <span class="badge">4 minutes ago</span>
+                        <i class="fa fa-fw fa-comment"></i> Commented on a post
+                    </a>
+                    <a href="#" class="list-group-item">
+                        <span class="badge">23 minutes ago</span>
+                        <i class="fa fa-fw fa-truck"></i> Order 392 shipped
+                    </a>
+                    <a href="#" class="list-group-item">
+                        <span class="badge">46 minutes ago</span>
+                        <i class="fa fa-fw fa-money"></i> Invoice 653 has been paid
+                    </a>
+                    <a href="#" class="list-group-item">
+                        <span class="badge">1 hour ago</span>
+                        <i class="fa fa-fw fa-user"></i> A new user has been added
+                    </a>
+                    <a href="#" class="list-group-item">
+                        <span class="badge">2 hours ago</span>
+                        <i class="fa fa-fw fa-check"></i> Completed task: "pick up dry cleaning"
+                    </a>
+                    <a href="#" class="list-group-item">
+                        <span class="badge">yesterday</span>
+                        <i class="fa fa-fw fa-globe"></i> Saved the world
+                    </a>
+                    <a href="#" class="list-group-item">
+                        <span class="badge">two days ago</span>
+                        <i class="fa fa-fw fa-check"></i> Completed task: "fix error on sales page"
+                    </a>
+                </div>
+                <div class="text-right">
+                    <a href="#">View All Activity <i class="fa fa-arrow-circle-right"></i></a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- /.row -->

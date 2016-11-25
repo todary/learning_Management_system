@@ -1,0 +1,192 @@
+
+<div class="row">
+    <div class="col-lg-12">
+        <h1 class="page-header">
+            Materials Control
+        </h1>
+        <ol class="breadcrumb">
+            <li>
+                <i class="fa fa-dashboard"></i>  <a href="<?php echo $this->baseUrl() . '/admin' ?>">Dashboard</a>
+            </li>
+            <li class="active">
+                <i class="fa fa-edit"></i> Material Control
+            </li>
+        </ol>
+    </div>
+</div>
+<!-- /.row -->
+<div class="col-lg-12 ">
+    <div>
+        <a style="margin:5px;" href="<?php echo $this->baseUrl() . '/admin/addmaterialdoc' ?>" type="submit" class="btn btn-md btn-default pull-right" />
+        <i class="fa fa-file fa-1x"></i> 
+        Add Document Material
+        </a> 
+        <a style="margin:5px;"  href="<?php echo $this->baseUrl() . '/admin/addmaterialvid' ?>" type="submit" class="btn btn-md btn-default pull-right" />
+        <i class="fa fa-video-camera fa-1x"></i>
+        Add Video Material
+        </a>
+    </div>
+    <h2>Materials Table</h2>
+    <div class="table-responsive">
+        <table class="table table-bordered table-hover">
+            <thead>
+                <tr>
+                    <th><i class="fa fa-fw fa-file"></i> Material</th>
+                    <th><i class="fa fa-fw fa-leaf"></i> Course</th>
+                    <th><i class="fa fa-fw fa-image"></i> Image</th>
+                    <th><i class="fa fa-fw fa-bars"></i>Download Times</th>
+                    <th><i class="fa fa-fw fa-clock-o"></i> Add Time</th>
+                    <th><i class="fa fa-fw fa-file-pdf-o"></i> Type</th>
+                    <th><i class="fa fa-fw fa-sticky-cog"></i>Download</th>
+                    <th><i class="fa fa-fw fa-star-half-o"></i> Active state</th>
+                    <th><i class="fa fa-fw fa-cogs"></i> Action</th>
+                </tr>
+            </thead>
+            <tbody>
+
+                <?php
+                foreach ($this->materials as $material) {
+
+                    $matrialcatDB = new Application_Model_Courses();
+                    $matrialcatDB->category_id = $material['CategoryId'];
+                    $matrialcat = $matrialcatDB->getoneCategory();
+                    foreach ($matrialcat as $category) {
+                        $cat = $category['course_name'];
+                        $matrialTypesDB = new Application_Model_Downloads();
+                        $Dtimes = $matrialTypesDB->getDowenload($material['id']);
+                    }
+                    ?>
+                    <tr>
+                        <td><p data-placement="left" title="<?php echo $material['descib'] ?>"><?php echo $material['material_name'] ?></p></td>
+                        <td>
+                            <a href="<?php echo $this->baseUrl() . '/category/details/id/' . $material['CategoryId'] ?>"  data-placement="left" title="<?php echo $cat ?>">
+                                <?php echo $material['Course']; ?>
+                            </a>
+
+                        </td>
+                        <td><img  class="thumbnail" src='<?php echo $this->baseUrl() . '/img/materials_images_folder/' . $material['image'] ?>' ></td>
+                        <!--<td><?php // echo $material['descib'] ?></td>-->
+                        <td><?php echo  $Dtimes ?></td>
+                        <td><?php echo $material['created_at'] ?></td>
+                        <td><?php echo $material['type'] ?></td>
+                       <td>
+                            <?php if ($material['is_downloadable'] == 1) { ?>
+                                <div class="btn-group" data-toggle="buttons">
+                                    <label class="btn btn-md btn-default active">
+                                        <input type="radio" name="options"  id="option" autocomplete="off" value="<?php echo $this->baseUrl() . '/admin/changestate/do/1/id/' . $material['id'] . '/state/' . $material['is_downloadable'] ?>" />
+                                        Yes
+                                    </label>
+                                    <label class="btn btn-md btn-default ">
+                                        <input type="radio" name="options" id="option2" autocomplete="off" value="<?php echo $this->baseUrl() . '/admin/changestate/do/1/id/' . $material['id'] . '/state/' . $material['is_downloadable'] ?>"/>
+                                        No
+                                    </label>
+                                </div>
+                            <?php } else { ?>
+                                <div class="btn-group" data-toggle="buttons">
+                                    <label class="btn btn-md btn-default ">
+                                        <input type="radio" name="options"  id="option" autocomplete="off" value="<?php echo $this->baseUrl() . '/admin/changestate/do/1/id/' . $material['id'] . '/state/' . $material['is_downloadable'] ?>" />
+                                        Yes
+                                    </label>
+                                    <label class="btn btn-md btn-default active">
+                                        <input type="radio" name="options" id="option2" autocomplete="off" value="<?php echo $this->baseUrl() . '/admin/changestate/do/1/id/' . $material['id'] . '/state/' . $material['is_downloadable'] ?>"/>
+                                        No
+                                    </label>
+                                </div>
+                            <?php } ?>
+                        </td>
+                        <td>
+
+                            <?php if ($material['is_active'] == 1) { ?>
+                                <div class="btn-group" data-toggle="buttons">
+                                    <label class="btn btn-md btn-default active">
+                                        <input type="radio" name="options"  id="option" autocomplete="off" value="<?php echo $this->baseUrl() . '/admin/changestate/do/2/id/' . $material['id'] . '/state/' . $material['is_active'] ?>" />
+                                        Yes
+                                    </label>
+                                    <label class="btn btn-md btn-default ">
+                                        <input type="radio" name="options" id="option2" autocomplete="off" value="<?php echo $this->baseUrl() . '/admin/changestate/do/2/id/' . $material['id'] . '/state/' . $material['is_active'] ?>"/>
+                                        No
+                                    </label>
+                                </div>
+                            <?php } else { ?>
+                                <div class="btn-group" data-toggle="buttons">
+                                    <label class="btn btn-md btn-default ">
+                                        <input type="radio" name="options"  id="option" autocomplete="off" value="<?php echo $this->baseUrl() . '/admin/changestate/do/2/id/' . $material['id'] . '/state/' . $material['is_active'] ?>" />
+                                        Yes
+                                    </label>
+                                    <label class="btn btn-md btn-default active">
+                                        <input type="radio" name="options" id="option2" autocomplete="off" value="<?php echo $this->baseUrl() . '/admin/changestate/do/2/id/' . $material['id'] . '/state/' . $material['is_active'] ?>"/>
+                                        No
+                                    </label>
+                                </div>
+                            <?php } ?>
+                        </td>
+                        <td>
+                            <!--delete action-->
+                            <a type="submit"  data-placement="left" title="Delete This MAterial permently" class="btn btn-md btn-danger" name="delete" data-toggle="modal" data-target="#deleteModal<?php echo $material['id'] ?>"/>
+                            <i class="fa fa-trash fa-1x"></i> Delete
+                            </a>
+                            <div class="modal fade" id="deleteModal<?php echo $material['id'] ?>" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+                                <div class="modal-dialog">
+                                    <div class="modal-content">
+                                        <div class="modal-header">
+                                            <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                                            <h4 class="modal-title" id="myModalLabel">Warning</h4>
+                                        </div>
+                                        <div class="modal-body">
+                                            <?php echo $cat ?></br>
+                                            Are you sure you wand to delete material "<span style="color:green;"><?php echo $material['material_name'] ?></span>"
+                                            of course "<span style="color:royalblue;"><?php echo $material['Course'] ?></span>" !!?
+                                        </div>
+                                        <div class="modal-footer">
+                                            <a href="<?php echo $this->baseUrl() . '/admin/deletematerial/id/' . $material['id'] ?>" class="btn btn-md btn-danger"> Yes Delete</a>
+                                            <button type="button" class="btn btn-default" data-dismiss="modal">No</button>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <!--edit action-->
+                            <a href="<?php echo $this->baseUrl() . '/admin/editmaterial/id/' . $material['id'] ?>"data-placement="left" title="Edit This Material" class="btn btn-md btn-primary" >
+                                <i class="fa fa-pencil-square-o fa-1x"></i> Edit
+                            </a>
+                        </td>
+                    </tr>
+                <?php } ?>
+
+            </tbody>
+        </table>
+    </div>
+</div>
+
+
+<script src="<?php echo $this->baseUrl() . '/../public/js/jquery-1.12.3.js' ?>"></script>
+<script>
+    $(function () {
+        console.log('js started');
+        $('.btn-group').on('click', function () {
+//            console.log($(this).children().children().val());
+            var url = $(this).children().children().val();
+            window.location.replace(url);
+
+//            $.ajax({
+//                url: url,
+//                type: 'POST',
+//                data: "format=json",
+//                async: false,
+//                success: function (response) {
+////                    var result = JSON.parse(response);
+//                    alert(response);
+//                },
+//                error: function (error) {
+//                    console.log(error);
+//                }
+//            });//end of ajax request
+
+        });
+
+
+
+
+    });
+
+</script>
+
